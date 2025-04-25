@@ -1,0 +1,49 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\user\\Desktop\\auth form\\JwtAuthApp\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\user\\Desktop\\auth form\\JwtAuthApp\\wwwroot\\images\\images.png",
+      "PackagePath": "staticwebassets\\images\\images.png"
+    },
+    {
+      "Id": "C:\\Users\\user\\Desktop\\auth form\\JwtAuthApp\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "C:\\Users\\user\\Desktop\\auth form\\JwtAuthApp\\wwwroot\\main-FD3BZTKE.js",
+      "PackagePath": "staticwebassets\\main-FD3BZTKE.js"
+    },
+    {
+      "Id": "C:\\Users\\user\\Desktop\\auth form\\JwtAuthApp\\wwwroot\\polyfills-FFHMD2TL.js",
+      "PackagePath": "staticwebassets\\polyfills-FFHMD2TL.js"
+    },
+    {
+      "Id": "C:\\Users\\user\\Desktop\\auth form\\JwtAuthApp\\wwwroot\\styles-NWTNLWNU.css",
+      "PackagePath": "staticwebassets\\styles-NWTNLWNU.css"
+    },
+    {
+      "Id": "obj\\Release\\net9.0\\staticwebassets\\msbuild.JwtAuthApp.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Release\\net9.0\\staticwebassets\\msbuild.JwtAuthApp.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Release\\net9.0\\staticwebassets\\msbuild.build.JwtAuthApp.props",
+      "PackagePath": "build\\JwtAuthApp.props"
+    },
+    {
+      "Id": "obj\\Release\\net9.0\\staticwebassets\\msbuild.buildMultiTargeting.JwtAuthApp.props",
+      "PackagePath": "buildMultiTargeting\\JwtAuthApp.props"
+    },
+    {
+      "Id": "obj\\Release\\net9.0\\staticwebassets\\msbuild.buildTransitive.JwtAuthApp.props",
+      "PackagePath": "buildTransitive\\JwtAuthApp.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

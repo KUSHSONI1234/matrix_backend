@@ -1,0 +1,6 @@
+@JwtAuthApp_HostAddress = http://192.168.28.44:5102
+
+GET {{JwtAuthApp_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
