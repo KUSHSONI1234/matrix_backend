@@ -346,3 +346,4 @@ C:\Users\user\Desktop\auth form\Backend\ShiftBackend\obj\Debug\net9.0\refint\Shi
 C:\Users\user\Desktop\auth form\Backend\ShiftBackend\obj\Debug\net9.0\ShiftBackend.pdb
 C:\Users\user\Desktop\auth form\Backend\ShiftBackend\obj\Debug\net9.0\ShiftBackend.genruntimeconfig.cache
 C:\Users\user\Desktop\auth form\Backend\ShiftBackend\obj\Debug\net9.0\ref\ShiftBackend.dll
+C:\Users\user\Desktop\auth form\Backend\ShiftBackend\obj\Debug\net9.0\ShiftBackend.sourcelink.json

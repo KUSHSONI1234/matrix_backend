@@ -6,12 +6,12 @@ using JwtAuthApp.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// 1️⃣ Database
+// 1️⃣ Database Configuration (ApplicationDbContext)
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// 2️⃣ JWT Authentication
-var jwt = builder.Configuration.GetSection("Jwt");
+// 2️⃣ JWT Authentication Configuration
+var jwtSection = builder.Configuration.GetSection("Jwt");
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
@@ -23,19 +23,19 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidateAudience = true,
             ValidateLifetime = true,
             ValidateIssuerSigningKey = true,
-            ValidIssuer = jwt["Issuer"],
-            ValidAudience = jwt["Audience"],
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwt["Key"]!)),
-            ClockSkew = TimeSpan.Zero
+            ValidIssuer = jwtSection["Issuer"],
+            ValidAudience = jwtSection["Audience"],
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSection["Key"]!)),
+            ClockSkew = TimeSpan.Zero // To make the token expire exactly at the defined expiration time
         };
     });
 
-// 3️⃣ CORS Configuration
+// 3️⃣ CORS Configuration (AllowFrontend Policy)
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", policy =>
         policy.WithOrigins(
-                "http://localhost:4200",
+                "http://localhost:4200",  // Add your frontend URLs here
                 "http://localhost:4300",
                 "http://192.168.28.44:4200",
                 "http://192.168.28.44:4300",
@@ -43,28 +43,28 @@ builder.Services.AddCors(options =>
             )
             .AllowAnyHeader()
             .AllowAnyMethod()
-            .AllowCredentials()); // only if needed
+            .AllowCredentials());
 });
 
-// 4️⃣ MVC + Swagger
+// 4️⃣ MVC + Swagger Configuration
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// 5️⃣ Development tools
+// 5️⃣ Development tools (Swagger UI)
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 
-// 6️⃣ Middleware Order is IMPORTANT
+// 6️⃣ Middleware Setup
 app.UseStaticFiles();
 app.UseRouting();
 
-// ⚠️ Allow OPTIONS requests and add CORS headers manually (for some hosting environments)
+// ⚠️ Handle OPTIONS requests and add CORS headers manually
 app.Use(async (context, next) =>
 {
     context.Response.Headers.Add("Access-Control-Allow-Origin", context.Request.Headers["Origin"]);
@@ -81,14 +81,18 @@ app.Use(async (context, next) =>
     await next();
 });
 
+// Apply CORS policy
 app.UseCors("AllowFrontend");
+
+// Authentication and Authorization Middleware
 app.UseAuthentication();
 app.UseAuthorization();
 
+// Route to Controllers
 app.MapControllers();
 
-// Optional fallback for Angular if serving from backend
+// Optional fallback for Angular (if serving from backend)
 app.MapFallbackToFile("index.html");
-// app.Urls.Add("http://localhost:7000");
 
+// Run the app
 app.Run();

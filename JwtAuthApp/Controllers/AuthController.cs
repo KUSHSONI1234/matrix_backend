@@ -1,10 +1,15 @@
+using JwtAuthApp.Models;
+using JwtAuthApp.Data;
+
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using JwtAuthApp.Data;
-using JwtAuthApp.Models;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace JwtAuthApp.Controllers
 {
@@ -21,6 +26,7 @@ namespace JwtAuthApp.Controllers
             _config = config;
         }
 
+        // Register User
         [HttpPost("register")]
         public IActionResult Register([FromBody] RegisterModel model)
         {
@@ -33,7 +39,7 @@ namespace JwtAuthApp.Controllers
             var user = new User
             {
                 Username = model.Username,
-                PasswordHash = model.Password // Already encrypted from frontend
+                PasswordHash = model.Password // Password is already hashed from frontend
             };
 
             _context.Users.Add(user);
@@ -42,6 +48,7 @@ namespace JwtAuthApp.Controllers
             return Ok(new { message = "User registered successfully." });
         }
 
+        // User Login
         [HttpPost("login")]
         public IActionResult Login([FromBody] RegisterModel model)
         {
@@ -53,15 +60,18 @@ namespace JwtAuthApp.Controllers
                 return Unauthorized(new { message = "Invalid username or password." });
 
             var token = GenerateJwtToken(model.Username);
+
+            ///////user
             return Ok(new
             {
                 token,
+                // pagelist
                 message = "Login successful.",
-                expiresIn = 60 * 1000
+                expiresIn = 60 * 1000 // 60 seconds
             });
         }
 
-        // GET: api/auth
+        // Get All Users
         [HttpGet]
         public IActionResult GetAllUsers()
         {
@@ -75,7 +85,9 @@ namespace JwtAuthApp.Controllers
             return Ok(users);
         }
 
-
+        // Save Page Rights
+     
+        // Generate JWT Token for Authentication
         private string GenerateJwtToken(string username)
         {
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));

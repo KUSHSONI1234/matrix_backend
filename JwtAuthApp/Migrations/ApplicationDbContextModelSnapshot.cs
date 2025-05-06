@@ -21,42 +21,6 @@ namespace JwtAuthApp.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("FormData", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Code")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("SetAsDefault")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("ShortName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("FormData");
-                });
-
             modelBuilder.Entity("JwtAuthApp.Models.User", b =>
                 {
                     b.Property<int>("Id")
@@ -76,6 +40,62 @@ namespace JwtAuthApp.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("Page", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Pages");
+                });
+
+            modelBuilder.Entity("UserPageAccess", b =>
+                {
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PageId")
+                        .HasColumnType("int");
+
+                    b.HasKey("UserId", "PageId");
+
+                    b.HasIndex("PageId");
+
+                    b.ToTable("UserPageAccesses");
+                });
+
+            modelBuilder.Entity("UserPageAccess", b =>
+                {
+                    b.HasOne("Page", "Page")
+                        .WithMany()
+                        .HasForeignKey("PageId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("JwtAuthApp.Models.User", "User")
+                        .WithMany("UserPageAccesses")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Page");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("JwtAuthApp.Models.User", b =>
+                {
+                    b.Navigation("UserPageAccesses");
                 });
 #pragma warning restore 612, 618
         }

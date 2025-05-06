@@ -360,3 +360,4 @@ C:\Users\user\Desktop\auth form\Backend\JwtAuthApp\obj\Debug\net9.0\refint\JwtAu
 C:\Users\user\Desktop\auth form\Backend\JwtAuthApp\obj\Debug\net9.0\JwtAuthApp.pdb
 C:\Users\user\Desktop\auth form\Backend\JwtAuthApp\obj\Debug\net9.0\JwtAuthApp.genruntimeconfig.cache
 C:\Users\user\Desktop\auth form\Backend\JwtAuthApp\obj\Debug\net9.0\ref\JwtAuthApp.dll
+C:\Users\user\Desktop\auth form\Backend\JwtAuthApp\obj\Debug\net9.0\JwtAuthApp.sourcelink.json
