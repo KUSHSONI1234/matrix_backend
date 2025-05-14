@@ -3,9 +3,6 @@ C:\Users\user\Desktop\auth form\Backend\MyApi\bin\Debug\net9.0\appsettings.Devel
 C:\Users\user\Desktop\auth form\Backend\MyApi\bin\Debug\net9.0\appsettings.json
 C:\Users\user\Desktop\auth form\Backend\MyApi\bin\Debug\net9.0\publish\appsettings.Development.json
 C:\Users\user\Desktop\auth form\Backend\MyApi\bin\Debug\net9.0\publish\appsettings.json
-C:\Users\user\Desktop\auth form\Backend\MyApi\bin\Debug\net9.0\publish\JwtAuthApp.deps.json
-C:\Users\user\Desktop\auth form\Backend\MyApi\bin\Debug\net9.0\publish\JwtAuthApp.runtimeconfig.json
-C:\Users\user\Desktop\auth form\Backend\MyApi\bin\Debug\net9.0\publish\JwtAuthApp.staticwebassets.endpoints.json
 C:\Users\user\Desktop\auth form\Backend\MyApi\bin\Debug\net9.0\publish\MyApi.deps.json
 C:\Users\user\Desktop\auth form\Backend\MyApi\bin\Debug\net9.0\publish\MyApi.runtimeconfig.json
 C:\Users\user\Desktop\auth form\Backend\MyApi\bin\Debug\net9.0\publish\MyApi.staticwebassets.endpoints.json

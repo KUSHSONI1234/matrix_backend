@@ -85,8 +85,26 @@ namespace JwtAuthApp.Controllers
             return Ok(users);
         }
 
+        [HttpDelete("{username}")]
+        public async Task<IActionResult> DeleteUser(string username)
+        {
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == username);
+
+            if (user == null)
+                return NotFound(new { message = "User not found." });
+
+            _context.Users.Remove(user);
+            await _context.SaveChangesAsync();
+
+            // return Ok(new { message = "User deleted successfully." });
+            return Ok(new { message = "User deleted successfully." });
+
+        }
+
+
+
         // Save Page Rights
-     
+
         // Generate JWT Token for Authentication
         private string GenerateJwtToken(string username)
         {
