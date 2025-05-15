@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PageRightsApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+05622ee49182e543e0f957d0ff6ec540f4fd8a2e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6eca0be3d720c4dad1fef079e233e1d31b245e15")]
 [assembly: System.Reflection.AssemblyProductAttribute("PageRightsApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PageRightsApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
