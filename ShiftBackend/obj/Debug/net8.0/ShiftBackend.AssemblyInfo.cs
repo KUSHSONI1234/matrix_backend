@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ShiftBackend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4f82c8c7ba1888e022fba91e1ae44eccf7aa5e68")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f3cdedcfb0ff50f660970000b18f3cbcfff15b55")]
 [assembly: System.Reflection.AssemblyProductAttribute("ShiftBackend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ShiftBackend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
